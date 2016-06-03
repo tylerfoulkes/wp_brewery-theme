@@ -1,0 +1,491 @@
+/*
+Theme Name: Brew
+Theme URI: 
+Author: Tyler Foulkes
+Author URI: http://wordpress.org/
+Description: Brewery theme
+License: 
+License URI: 
+Tags: 
+Text Domain: 
+*/
+
+
+/*GLOBAL PAGE START*/
+@font-face {
+	src: url('BEBAS___.TTF');
+	font-family: bebas;
+}
+
+html, body, div, img, p, a, h1, h2, footer,
+header, ul, li, a {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	text-decoration: none;
+	font-family: bebas;
+}
+
+html, body {
+	background-color: transparent;
+}
+
+.clearfix {
+	clear: both;
+}
+
+#category {
+	display: block;
+	margin: 90px 5% 0 5%;
+	width: 90%;
+}
+
+#labels {
+	padding: 30px 0 0 0;
+	color: black;
+	width: 200px;
+	display: block;
+	margin: 0 auto 0 auto;
+	clear: both;
+	text-align: center;
+}
+
+#labels a {
+	font-size: 16px;
+	color: black;
+}
+
+#labels a:hover {
+	border-bottom: 1px solid #000;
+}
+
+/*GLOBAL PAGE END*/
+
+
+
+
+/*HEADER START*/
+
+header {
+	z-index: 3;
+	padding: 30px 3% 30px 3%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 94%;
+	height: 20px;
+	background-color: black;
+}
+
+#logo img {
+	float: left;
+	height: 20px;
+	width: 100px;
+	border: 1px solid white;
+}
+
+.menu {
+	margin: 0 30px 0 0;
+	float: right;
+}
+
+.menu li {
+	float: left;
+	margin: 0 25px 0 0;
+}
+
+.menu a {
+	font-size: 16px;
+	color: white;
+}
+
+.menu a:last-of-type {
+	margin: 0;
+}
+
+.menu a:hover {
+	border-bottom: 2px solid #fff;
+}
+
+#searchform {
+	float: right;
+}
+
+#searchform input[type="text"] {
+	font-size: 18px;
+	outline: none;
+	border: none;
+	padding: 4px;
+	height: 18px;
+	background-color: #f0f0f0;
+	width: 150px;
+}
+
+#searchform input[type="submit"]{
+	display: none;
+}
+
+/*HEADER END */
+
+
+
+
+/*HOMEPAGE PAGE START*/
+
+#banner_cont {
+	margin: 40px 0 0 0;
+	display: block;
+	position: relative;
+	width: 100%;
+	height: auto;
+	max-height: 100%;
+	overflow: hidden;
+}
+
+#banner_cont img {
+	height: auto;
+	width: 100%;
+}
+
+#banner_cont p a {
+	padding: 10px;
+	background-color: black;
+	color: white;
+	top: 45%;
+	left: 50%;
+	position: absolute;
+	z-index: 2;
+	height: 20px;
+	margin: -10px 0 0 0;
+}
+
+#fet_brews {
+	width: 90%;
+	margin: 20px 5% 20px 5%;
+}
+
+.featured {
+	color: #999999;
+	float: left;
+	width: 28%;
+	margin: 20px 8% 0 0;
+	max-height: 200px;
+}
+
+.featured p {
+	font-size: 16px;
+	display: block;
+	margin: 0 0 10px 0;
+}
+
+.featured p:last-child {
+	font-family: arial;
+	font-size: 13px;
+}
+
+.featured:nth-child(3n) {
+	margin: 20px 0 0 0;
+}
+
+.featured img, #brews_page li img {
+	height: auto;
+	float: left;
+	width: 60%;
+	margin: 0 4% 0 0;
+	max-height: 200px;
+}
+
+/*HOMEPAGE PAGE START*/
+
+
+
+
+/*ABOUT PAGE START*/
+
+.about {
+	height: auto;
+	display: block;
+	float: left;
+	width: 21.25%;
+	margin: 20px 5% 0 0;
+}
+
+.about:nth-child(4n) {
+	margin: 20px 0 0 0;
+}
+
+.about h2 {
+	font-size: 16px;
+	text-align: center;
+}
+
+.about p {
+	font-size: 13px;
+	color: grey;
+	font-family: arial;
+	margin: 10px 0 0 0;
+}
+
+.about img {
+	width: 100%;
+	height: auto;
+}
+
+/*ABOUT PAGE END*/
+
+
+
+
+/*CONTACT PAGE START*/
+
+#contact_form {
+	display: block;
+	width: 90%;
+	margin: 100px 5% 40px 5%;
+}
+
+#contact_form input {
+	width: 48%;
+	float: left;
+	margin: 0 1% 20px 0;
+	padding: 1%;
+	font-size: 20px;
+	border: 1px solid #000;
+	outline: none;
+	height: 40px;
+}
+
+#contact_form textarea {
+	font-size: 20px;
+	padding: 1%;
+	border: 1px solid #000;
+	outline: none;
+	height: 200px;
+	width: 100%;
+	margin: 0 0 20px 0;
+}
+
+/*CONTACT PAGE END*/
+
+
+
+
+/*BREWS PAGE START*/
+
+.brews {
+	color: #999999;
+	max-height: 200px;
+	display: block;
+	float: left;
+	width: 17.6%;
+	margin: 20px 3% 0 0;
+}
+
+.brews p {
+	margin: 0 0 10px 0;
+}
+
+.brews p:last-of-type {
+	font-size: 13px;
+	font-family: arial;
+}
+
+.brews img {
+	height: auto;
+	float: left;
+	width: 60%;
+	margin: 0 4% 0 0;
+}
+
+.brews:nth-child(5n) {
+	margin: 20px 0 0 0;
+}
+
+/*BREWS PAGE END*/
+
+
+
+
+/*BLOG PAGE START*/
+
+#blog {
+	float: left;
+	width: 67%;
+	margin: 40px 3% 40px 5%;
+}
+
+.post {
+	padding: 0 0 20px 0;
+	border-bottom: 1px solid #000;
+	width: 100%;
+	margin: 40px 0 0 0;
+}
+
+.post p {
+	margin: 20px 0 0 0;
+	font-size: 14px;
+	font-family: arial;
+}
+
+.post h3 {
+	color: black;
+	font-size: 16px;
+}
+
+.post div {
+	background-color: grey;
+	width: 50% !important;
+}
+
+#blog img {
+	max-width: 100% !important;
+	height: auto !important;
+}
+
+.post p {
+	font-family: arial;
+	width: 100%;
+}
+
+#sidebar {
+	float: right;
+	padding: 1%;
+	background-color: #f0f0f0;
+	width: 18%;
+	margin: 80px 5% 40px 0;
+}
+
+#sidebar h2 {
+	margin: 0 0 10px 0;
+	font-size: 16px;
+}
+
+#sidebar ul {
+	margin: 0 0 15px 0;
+}
+
+#sidebar li a, #sidebar li, #sidebar li p {
+	margin: 0 0 5px 0;
+	color: black;
+	font-size: 13px;
+	font-family: arial;
+}
+
+#sidebar li a:hover {
+	border-bottom: 1px solid #000;
+}
+
+#sidebar #searchform, #sidebar li.pagenav {
+	display: none;
+}
+
+/*BLOG PAGE END*/
+
+
+/*FOOTER START*/
+
+footer {
+	display: block;
+	margin: 40px 0 0 0;
+	height: 200px;
+	color: white;
+	width: 94%;
+	padding: 30px 3% 30px 3%;
+	background-color: #f0f0f0;
+}
+
+footer .foot_list {
+	color: black;
+	width: 31%;
+	margin: 0 3.5% 0 0;
+	float: left;
+	display: block;
+}
+
+footer .foot_list h2 {
+	color: black;
+	font-size: 16px;
+	text-align: center;
+	display: block;
+	margin: 0 auto 20px auto;
+}
+
+footer .foot_list:nth-child(3) {
+	margin: 0;
+	clear: right;
+}
+
+.footer_left a, 
+.footer_left p,
+.footer_middle a,
+.footer_middle p,
+.footer_right a,
+.footer_right p,
+.widget-area p {
+	font-size: arial;
+	text-align: center;
+	display: block;
+	margin: 0 auto 0 auto;
+	color: black;
+}
+
+/*FOOTER END*/
+
+
+
+
+/*MOBILE START*/
+@media screen and (max-width: 768px) {
+	header {
+		padding: 15px 3% 15px 3%;
+	}
+
+	.brews, .about, .featured {
+		width: 100%;
+		float: none;
+		height: auto;
+		max-height: none;
+	}
+
+	.brews img, .about img, .featured img {
+		height: auto;
+	}
+
+	footer {
+		margin: 60px 0 0 0;
+		height: auto;
+	}
+
+	footer .foot_list {
+		margin: 20px 0 0 0;
+		width: 100%;
+	}
+
+	.menu {
+		float: none;
+		top: 50px;
+		position: fixed;
+		z-index: 2;
+		margin: 0;
+		width: 100%;
+		background-color: white;
+	}
+
+	.menu li {
+		display: block;
+		text-align: center;
+		float: none;
+		margin: 15px 0 0 0;
+	}
+
+	.menu li:last-child {
+		margin: 15px 0 15px 0;
+	}
+
+	.menu li a {
+		color: black
+	}
+}
+
+
+/*MOBILE END*/
