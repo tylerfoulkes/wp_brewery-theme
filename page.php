@@ -1,16 +1,15 @@
 <?php get_header();
 
- if ( have_posts() ) {
-		while ( have_posts() ) { ?>
-		<li class="post">
-			<?php the_post(); ?>
-			<a href="<?php the_permalink(); ?>"><h3><?php the_title(); ?></h3></a>
-			<?php the_content();?>
-			<?php comments_template( '/comments.php' ); ?>
-		</li>
-		<?php }
-		}
-	?>
+if ( have_posts() ) { ?>
+ 	<div id="contact_form">
+		<?php while ( have_posts() ) { ?>
+			<li>
+				<?php the_post(); ?>
+				<?php the_content();?>
+			</li>
+		<?php } ?>
+	</div>
+<?php } ?>
 <div class="clearfix"></div>
 
 <?php get_footer(); ?>

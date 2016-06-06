@@ -15,7 +15,6 @@
 //   );
 // }
 
-
 /**
  * Register our sidebars and widgetized areas.
  *
@@ -48,19 +47,23 @@ function arphabet_widgets_init() {
     'before_title'  => '<h2 class="rounded">',
     'after_title'   => '</h2>',
   ) );
+  
 }
 
 add_action( 'widgets_init', 'arphabet_widgets_init' );
 
 
-add_theme_support( 'custom-header' );
+add_theme_support( 'custom-header', array('default-text-color' => '#fff',
+  'header-text' => true) );
 
 
 add_theme_support( 'custom-logo' );
 
-add_theme_support( 'featured-content', array(
-    'featured_content_filter' => 'mytheme_get_featured_content',
-));
+
+// add_theme_support( 'featured-content', array(
+//     'featured_content_filter' => 'mytheme_get_featured_content',
+// ));
+
 
 function register_my_menu() {
   register_nav_menu('top_nav',__( 'Top Navigation' ));

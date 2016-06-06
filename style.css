@@ -36,7 +36,7 @@ html, body {
 
 #category {
 	display: block;
-	margin: 90px 5% 0 5%;
+	margin: 100px 5% 0 5%;
 	width: 90%;
 }
 
@@ -68,20 +68,21 @@ html, body {
 
 header {
 	z-index: 3;
-	padding: 30px 3% 30px 3%;
+	padding: 15px 3% 15px 3%;
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 94%;
-	height: 20px;
+	height: 50px;
 	background-color: black;
 }
 
 #logo img {
 	float: left;
-	height: 20px;
-	width: 100px;
-	border: 1px solid white;
+	height: auto;
+	max-height: 50px;
+	width: auto;
+	max-width: 200px;
 }
 
 .menu {
@@ -90,24 +91,42 @@ header {
 }
 
 .menu li {
+	height: 50px;
 	float: left;
 	margin: 0 25px 0 0;
 }
 
 .menu a {
+	line-height: 50px;
+	height: 50px;
 	font-size: 16px;
-	color: white;
 }
 
-.menu a:last-of-type {
+/*.menu a:last-of-type {
 	margin: 0;
-}
+}*/
 
 .menu a:hover {
 	border-bottom: 2px solid #fff;
 }
 
+#mobile_menu {
+	display: none;
+}
+
+.navline {
+    width: 100%;
+    border-top: 1px solid #000;
+    margin: 0 0 6px 0;
+    height: 0;
+}
+
+.navline:last-of-type {
+    margin: 0;
+}
+
 #searchform {
+	margin: 14px 0 14px 0;
 	float: right;
 }
 
@@ -133,7 +152,7 @@ header {
 /*HOMEPAGE PAGE START*/
 
 #banner_cont {
-	margin: 40px 0 0 0;
+	margin: 70px 0 0 0;
 	display: block;
 	position: relative;
 	width: 100%;
@@ -161,7 +180,7 @@ header {
 
 #fet_brews {
 	width: 90%;
-	margin: 20px 5% 20px 5%;
+	margin: 60px 5% 60px 5%;
 }
 
 .featured {
@@ -178,7 +197,7 @@ header {
 	margin: 0 0 10px 0;
 }
 
-.featured p:last-child {
+.featured p:last-of-type {
 	font-family: arial;
 	font-size: 13px;
 }
@@ -190,7 +209,8 @@ header {
 .featured img, #brews_page li img {
 	height: auto;
 	float: left;
-	width: 60%;
+	width: auto;
+	max-width: 60%;
 	margin: 0 4% 0 0;
 	max-height: 200px;
 }
@@ -293,7 +313,8 @@ header {
 .brews img {
 	height: auto;
 	float: left;
-	width: 60%;
+	max-width: 60%;
+	width: auto;
 	margin: 0 4% 0 0;
 }
 
@@ -311,7 +332,11 @@ header {
 #blog {
 	float: left;
 	width: 67%;
-	margin: 40px 3% 40px 5%;
+	margin: 100px 3% 40px 5%;
+}
+
+.post:first-child {
+	margin: 0;
 }
 
 .post {
@@ -352,7 +377,7 @@ header {
 	padding: 1%;
 	background-color: #f0f0f0;
 	width: 18%;
-	margin: 80px 5% 40px 0;
+	margin: 100px 5% 40px 0;
 }
 
 #sidebar h2 {
@@ -386,7 +411,7 @@ header {
 
 footer {
 	display: block;
-	margin: 40px 0 0 0;
+	margin: 50px 0 0 0;
 	height: 200px;
 	color: white;
 	width: 94%;
@@ -422,7 +447,8 @@ footer .foot_list:nth-child(3) {
 .footer_right a,
 .footer_right p,
 .widget-area p {
-	font-size: arial;
+	font-size: 16px;
+	font-family: arial;
 	text-align: center;
 	display: block;
 	margin: 0 auto 0 auto;
@@ -440,15 +466,21 @@ footer .foot_list:nth-child(3) {
 		padding: 15px 3% 15px 3%;
 	}
 
-	.brews, .about, .featured {
+	#blog {
+		width: 90%;
+		margin: 0 5% 0 5%;
+	}
+
+	.brews, .about, .featured, .post {
 		width: 100%;
 		float: none;
 		height: auto;
 		max-height: none;
+		margin: 0 0 30px 0;
 	}
 
 	.brews img, .about img, .featured img {
-		height: auto;
+		max-height: none;
 	}
 
 	footer {
@@ -462,6 +494,7 @@ footer .foot_list:nth-child(3) {
 	}
 
 	.menu {
+		display: none;
 		float: none;
 		top: 50px;
 		position: fixed;
@@ -484,6 +517,22 @@ footer .foot_list:nth-child(3) {
 
 	.menu li a {
 		color: black
+	}
+
+	#banner_cont {
+		margin: 0;
+	}
+
+	#mobile_menu {
+		display: block;
+	}
+
+	#sidebar {
+		display: none;
+	}
+
+	#contact_form {
+		margin: 40px 5% 40px 5%;
 	}
 }
 
