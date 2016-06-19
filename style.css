@@ -42,7 +42,6 @@ html, body {
 
 #labels {
 	padding: 30px 0 0 0;
-	color: black;
 	width: 200px;
 	display: block;
 	margin: 0 auto 0 auto;
@@ -91,12 +90,14 @@ header {
 }
 
 .menu li {
+	position: relative;
 	height: 50px;
 	float: left;
 	margin: 0 25px 0 0;
 }
 
-.menu a {
+.menu li a {
+	color: white;
 	line-height: 50px;
 	height: 50px;
 	font-size: 16px;
@@ -110,13 +111,33 @@ header {
 	border-bottom: 2px solid #fff;
 }
 
+.sub-menu {
+	padding: 0 5px 0 5px;
+	top: 50px;
+	left: 0;
+	width: auto;
+	height: auto;
+	position: absolute;
+	display: none;
+	background-color: #f0f0f0;
+	color: black;
+}
+
+.sub-menu li a {
+	color: black !important;
+}
+
+.sub-menu li a:hover {
+	border-bottom: 2px solid #000;
+}
+
 #mobile_menu {
 	display: none;
 }
 
 .navline {
     width: 100%;
-    border-top: 1px solid #000;
+    border-top: 1px solid #fff;
     margin: 0 0 6px 0;
     height: 0;
 }
@@ -131,11 +152,12 @@ header {
 }
 
 #searchform input[type="text"] {
-	font-size: 18px;
+	font-family: arial;
+	font-size: 14px;
 	outline: none;
 	border: none;
 	padding: 4px;
-	height: 18px;
+	height: 20px;
 	background-color: #f0f0f0;
 	width: 150px;
 }
@@ -152,7 +174,7 @@ header {
 /*HOMEPAGE PAGE START*/
 
 #banner_cont {
-	margin: 70px 0 0 0;
+	margin: 80px 0 0 0;
 	display: block;
 	position: relative;
 	width: 100%;
@@ -167,6 +189,7 @@ header {
 }
 
 #banner_cont p a {
+	width: auto;
 	padding: 10px;
 	background-color: black;
 	color: white;
@@ -176,6 +199,10 @@ header {
 	z-index: 2;
 	height: 20px;
 	margin: -10px 0 0 0;
+}
+
+#banner_cont p a:hover {
+	background-color: rgba(0, 0, 0, 0.7);
 }
 
 #fet_brews {
@@ -305,6 +332,12 @@ header {
 	margin: 0 0 10px 0;
 }
 
+.brews p:nth-child(2), .brews p:nth-child(3), 
+.brews p:nth-child(4) {
+	display: block;
+	width: 40%;
+}
+
 .brews p:last-of-type {
 	font-size: 13px;
 	font-family: arial;
@@ -312,13 +345,13 @@ header {
 
 .brews img {
 	height: auto;
-	float: left;
-	max-width: 60%;
+	max-height: 200px;
+	max-width: 62%;
 	width: auto;
-	margin: 0 4% 0 0;
+	margin: 0 2% 0 0;
 }
 
-.brews:nth-child(5n) {
+.brews:nth-child(4n) {
 	margin: 20px 0 0 0;
 }
 
@@ -404,7 +437,92 @@ header {
 	display: none;
 }
 
+#comments {
+	margin: 20px 0 0 0;
+	background-color: #f0f0f0;
+	width: 500px !important;
+	padding: 2%;
+}
+
+#comments p, #comments span, #comments a {
+	color: black;
+	font-size: 13px;
+	font-family: arial;
+}
+
+#comments a {
+	font-weight: bold;
+}
+
+.comments-title, #reply-title {
+	font-family: arial;
+	font-size: 16px;
+}
+
+#commentform {
+	width: 100%;
+}
+
+#commentform input, #commentform textarea {
+	padding: 5px;
+	border: none;
+	outline: none;
+}
+
+.form-submit [type="submit"] {
+	background-color: black;
+	color: white;
+	padding: 5px;
+	font-size: 13px;
+}
+
+#commentform span {
+	vertical-align: top;
+}
+
+.comment-form-comment label, .comment-form-comment textarea {
+	display: block;
+}
+
+.comment-form-comment, .comment-form-author, .comment-form-email,
+.comment-notes, .comment-form-url {
+	width: 100% !important;
+}
+
+#respond {
+	width: 100%;
+}
+
+.comment-list, 
+.comment-list.fn, 
+.comment-list.says, 
+#respond, 
+.comment-body, 
+.comment-author, 
+.comment-meta a, 
+.reply a, 
+.reply-title, 
+.comment-meta, 
+.reply
+ {
+	background-color: transparent !important;
+	font-size: 14px;
+	font-family: arial;
+}
+
+.comment-body {
+	width: 96% !important;
+	margin: 2%;
+}
+
+.comment-body p {
+	width: 100% !important;
+	background-color: white;
+}
+
 /*BLOG PAGE END*/
+
+
 
 
 /*FOOTER START*/
@@ -413,7 +531,6 @@ footer {
 	display: block;
 	margin: 50px 0 0 0;
 	height: 200px;
-	color: white;
 	width: 94%;
 	padding: 30px 3% 30px 3%;
 	background-color: #f0f0f0;
@@ -447,7 +564,7 @@ footer .foot_list:nth-child(3) {
 .footer_right a,
 .footer_right p,
 .widget-area p {
-	font-size: 16px;
+	font-size: 14px;
 	font-family: arial;
 	text-align: center;
 	display: block;
@@ -461,6 +578,7 @@ footer .foot_list:nth-child(3) {
 
 
 /*MOBILE START*/
+
 @media screen and (max-width: 768px) {
 	header {
 		padding: 15px 3% 15px 3%;
@@ -488,43 +606,66 @@ footer .foot_list:nth-child(3) {
 		height: auto;
 	}
 
+	footer .foot_list:first-of-type {
+		margin: 0;
+	}
+
 	footer .foot_list {
-		margin: 20px 0 0 0;
+		margin: 30px 0 0 0;
 		width: 100%;
 	}
 
+	footer .foot_list:nth-child(3) {
+		margin: 30px 0 0 0;
+	}
+
 	.menu {
+		left: 0;
+		right: 0;
 		display: none;
 		float: none;
-		top: 50px;
+		top: 80px;
 		position: fixed;
 		z-index: 2;
 		margin: 0;
 		width: 100%;
-		background-color: white;
+		background-color: black;
 	}
 
 	.menu li {
+		height: auto;
 		display: block;
 		text-align: center;
 		float: none;
-		margin: 15px 0 0 0;
+		margin: 5px 0 0 0;
 	}
 
 	.menu li:last-child {
-		margin: 15px 0 15px 0;
+		margin: 5px 0 15px 0;
 	}
 
 	.menu li a {
-		color: black
-	}
-
-	#banner_cont {
-		margin: 0;
+		height: 20px;
 	}
 
 	#mobile_menu {
+		height: 20px;
+		top: 30px;
+		position: absolute;
+		right: 180px;
+		width: 30px;
 		display: block;
+	}
+
+	.sub-menu {
+		width: 100%;
+		margin: 0 0 0 0;
+		top: 0;
+		position: relative;
+	}
+
+	.sub-menu li a {
+		text-align: right;
 	}
 
 	#sidebar {
@@ -535,6 +676,5 @@ footer .foot_list:nth-child(3) {
 		margin: 40px 5% 40px 5%;
 	}
 }
-
 
 /*MOBILE END*/

@@ -1,10 +1,11 @@
 <?php get_header();?>
 
 <ul id="category">
-	<?php if ( have_posts() ) {
-		while ( have_posts() ) { ?>
-			<?php the_post(); ?>
-			<?php if (has_tag('beer')) {?>
+	<?php
+		if ( have_posts() ) {
+		while ( have_posts() ) {
+			the_post();
+			if (has_tag('beer')) { ?>
 				<li class="brews">
 					<?php the_content();?>
 					<div class="clearfix"></div>
@@ -26,8 +27,7 @@
 		}
 	} ?>
 </ul>
-<div id="labels">
-	<?php posts_nav_link('  ','prelabel','nextlabel'); ?>
-</div>
+
+<div class="clearfix"></div>
 
 <?php get_footer(); ?>

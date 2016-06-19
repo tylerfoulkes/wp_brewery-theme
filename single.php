@@ -3,18 +3,31 @@
 <ul id="blog">
 	<?php if ( have_posts() ) {
 		while ( have_posts() ) { ?>
-		<li class="post">
-			<?php the_post();?>
-			<a href="<?php the_permalink(); ?>"><h3><?php the_title(); ?></h3></a>
-			<?php the_content();?>
-			<?php comments_template(); ?>
-		</li>
-		<?php } // end while
-		} // end if
-	?>
+			<?php the_post(); ?>
+			<?php if (has_tag('beer')) {?>
+				<li class="brews">
+					<?php the_content();?>
+					<div class="clearfix"></div>
+				</li>
+			<?php }
+			else if (has_tag('about')) {?> 
+				<li class="about">
+					<h2><?php the_title(); ?></h2>
+					<?php the_content(); ?>
+					<div class="clearfix"></div>
+				</li>
+			<?php }	else { ?>
+				<li class="post">
+					<?php the_title();
+					the_content(); ?>
+					<?php comments_template();?>
+					<div class="clearfix"></div>
+				</li>
+			<?php }
+		}
+	} ?>
 </ul>
 
-<?php get_sidebar(); ?>
 <div class="clearfix"></div>
 
 <?php get_footer(); ?>

@@ -15,9 +15,8 @@
 //   );
 // }
 
-/**
- * Register our sidebars and widgetized areas.
- *
+/*
+  Register our sidebars and widgetized areas.
  */
 function arphabet_widgets_init() {
 
@@ -60,17 +59,9 @@ add_theme_support( 'custom-header', array('default-text-color' => '#fff',
 add_theme_support( 'custom-logo' );
 
 
-// add_theme_support( 'featured-content', array(
-//     'featured_content_filter' => 'mytheme_get_featured_content',
-// ));
-
-
 function register_my_menu() {
   register_nav_menu('top_nav',__( 'Top Navigation' ));
 }
 add_action( 'init', 'register_my_menu' );
-
-
-add_theme_support( 'post-formats', array('gallery', 'image'));
 
 ?>
