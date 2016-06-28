@@ -160,6 +160,7 @@ header {
 	height: 20px;
 	background-color: #f0f0f0;
 	width: 150px;
+	font-weight: lighter;
 }
 
 #searchform input[type="submit"]{
@@ -207,7 +208,7 @@ header {
 
 #fet_brews {
 	width: 90%;
-	margin: 60px 5% 60px 5%;
+	margin: 50px 5% 50px 5%;
 }
 
 .featured {
@@ -215,7 +216,6 @@ header {
 	float: left;
 	width: 28%;
 	margin: 20px 8% 0 0;
-	max-height: 200px;
 }
 
 .featured p {
@@ -288,13 +288,19 @@ header {
 #contact_form {
 	display: block;
 	width: 90%;
-	margin: 100px 5% 40px 5%;
+	margin: 120px 5% 0 5%;
+}
+
+#contact_form .wpcf7-form .name, #contact_form .wpcf7-form .email {
+	width: 50%;
+	float: left;
+	margin: 0 0 20px 0;
 }
 
 #contact_form input {
-	width: 48%;
+	vertical-align: top;
+	width: 100%;
 	float: left;
-	margin: 0 1% 20px 0;
 	padding: 1%;
 	font-size: 20px;
 	border: 1px solid #000;
@@ -302,15 +308,55 @@ header {
 	height: 40px;
 }
 
-#contact_form textarea {
-	font-size: 20px;
-	padding: 1%;
-	border: 1px solid #000;
-	outline: none;
-	height: 200px;
+#contact_form .wpcf7-form .message {
+	display: block;
+	overflow: auto;
+	height: auto;
 	width: 100%;
 	margin: 0 0 20px 0;
 }
+
+#contact_form textarea {
+	width: 100%;
+	padding: 1%;
+	font-size: 20px;
+	border: 1px solid #000;
+	outline: none;
+	height: 200px;
+}
+
+#contact_form .wpcf7-form .send {
+	background-color: transparent;
+	width: 50%;
+}
+
+#contact_form .wpcf7-form .send input {
+	background-color: black;
+	color: white;
+	border: none;
+	outline: none;
+	width: 100px;
+}
+
+#contact_form .wpcf7-form .send input:hover {
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+#contact_form .wpcf7-not-valid-tip {
+	font-family: arial;
+	font-size: 13px;
+	height: 13px;
+}
+
+#contact_form .wpcf7-response-output {
+	width: 400px;
+	margin: 0;
+	padding: 5px;
+	font-size: 13px;
+	font-family: arial;
+	margin: 0 0 0 120px;
+}
+
 
 /*CONTACT PAGE END*/
 
@@ -320,22 +366,24 @@ header {
 /*BREWS PAGE START*/
 
 .brews {
+	/*border: 1px solid #000;*/
 	color: #999999;
-	max-height: 200px;
 	display: block;
 	float: left;
-	width: 17.6%;
-	margin: 20px 3% 0 0;
+	width: 47.5%;
+	margin: 20px 5% 0 0;
 }
 
-.brews p {
+.brews p:first-of-type {
+	width: 25%;
+	float: left;
+	margin: 0 5% 10px 0;
+	overflow: auto;
+}
+
+.brews p:nth-of-type(2), .brews p:nth-of-type(3),
+.brews p:nth-of-type(4) {
 	margin: 0 0 10px 0;
-}
-
-.brews p:nth-child(2), .brews p:nth-child(3), 
-.brews p:nth-child(4) {
-	display: block;
-	width: 40%;
 }
 
 .brews p:last-of-type {
@@ -345,13 +393,11 @@ header {
 
 .brews img {
 	height: auto;
-	max-height: 200px;
-	max-width: 62%;
-	width: auto;
-	margin: 0 2% 0 0;
+	width: 100%;
+	margin: 0 0 0 0;
 }
 
-.brews:nth-child(4n) {
+.brews:nth-child(2n) {
 	margin: 20px 0 0 0;
 }
 
@@ -586,15 +632,17 @@ footer .foot_list:nth-child(3) {
 
 	#blog {
 		width: 90%;
-		margin: 0 5% 0 5%;
+		margin: 80px 5% 0 5%;
 	}
 
 	.brews, .about, .featured, .post {
+		display: block;
 		width: 100%;
 		float: none;
 		height: auto;
-		max-height: none;
+		max-height: auto;
 		margin: 0 0 30px 0;
+		overflow: auto;
 	}
 
 	.brews img, .about img, .featured img {
@@ -673,7 +721,7 @@ footer .foot_list:nth-child(3) {
 	}
 
 	#contact_form {
-		margin: 40px 5% 40px 5%;
+		margin: 80px 5% 30px 5%;
 	}
 }
 
