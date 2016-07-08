@@ -45,5 +45,5 @@
 	        		<input type="submit" id="searchsubmit" value="<?php echo esc_attr_x( 'Search', 'submit button' ); ?>" />
 	    		</div>
 			</form>
-			<?php wp_nav_menu( array( 'theme_location' => 'top_nav' ) ); ?>
+			<?php wp_nav_menu( array( 'top_nav' => 'Top Navigation' ) ); ?>
 		</header>

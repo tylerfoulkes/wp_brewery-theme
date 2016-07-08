@@ -4,14 +4,12 @@
 		<?php 
 			if ( have_posts() ) {
 			while ( have_posts() ) {
-				the_post(); 
-				if(!has_tag('beer') && !has_tag('about')) { ?>
+				the_post(); ?>
 					<li class="post">
 						<a href="<?php the_permalink(); ?>"><h3><?php the_title(); ?></h3></a>
 						<?php the_content();?>
 					</li>
-				<?php }
-			}
+			<?php }
 		} ?>
 	</ul>
 
