@@ -2,74 +2,71 @@
 
 
 
-add_action( 'init', 'create_book_tax' );
+// add_action( 'init', 'create_book_tax' );
 
-function create_book_tax() {
-  register_taxonomy(
-    'types',
-    'beers',
-    array(
-      'label' => __( 'Types' ),
-      //'rewrite' => array( 'slug' => 'types', 'with_front' => false ),
-      'hierarchical' => true,
-      'rewrite' => array('hierarchical' => true )
-    )
-  );
-}
+// function create_book_tax() {
+//   register_taxonomy(
+//     'types',
+//     'beers',
+//     array(
+//       'label' => __( 'Types' ),
+//       'hierarchical' => true
+//     )
+//   );
+// }
 
 /*
 * Creating a function to create our CPT
 */
 
-function custom_post_type() {
+// function custom_post_type() {
 
-// Set UI labels for Custom Post Type
-  $labels = array(
-    'name'                => _x( 'Beers', 'Post Type General Name'),
-    'singular_name'       => _x( 'Beer', 'Post Type Singular Name'),
-    'menu_name'           => __( 'Beers')
-  );
+// // Set UI labels for Custom Post Type
+//   $labels = array(
+//     'name'                => _x( 'Beers', 'Post Type General Name'),
+//     'singular_name'       => _x( 'Beer', 'Post Type Singular Name'),
+//     'menu_name'           => __( 'Beers')
+//   );
   
-// Set other options for Custom Post Type
+// // Set other options for Custom Post Type
   
-  $args = array(
-    'label'               => __( 'beers'),
-    'description'         => __( 'Beers'),
-    'labels'              => $labels,
-    // Features this CPT supports in Post Editor
+//   $args = array(
+//     'label'               => __( 'beers'),
+//     'description'         => __( 'Beers'),
+//     'labels'              => $labels,
+//     // Features this CPT supports in Post Editor
 
-    // You can associate this CPT with a taxonomy or custom taxonomy. 
+//     // You can associate this CPT with a taxonomy or custom taxonomy. 
 
-    /* A hierarchical CPT is like Pages and can have
-    * Parent and child items. A non-hierarchical CPT
-    * is like Posts.
-    */  
-    'hierarchical'        => false,
-    'public'              => true,
-    'show_ui'             => true,
-    'show_in_menu'        => true,
-    'show_in_nav_menus'   => true,
-    'show_in_admin_bar'   => true,
-    'menu_position'       => 5,
-    'can_export'          => true,
-    'has_archive'         => true,
-    'exclude_from_search' => false,
-    'publicly_queryable'  => true,
-    'capability_type'     => 'page'
-  );
+//      A hierarchical CPT is like Pages and can have
+//     * Parent and child items. A non-hierarchical CPT
+//     * is like Posts.
+      
+//     'hierarchical'        => true,
+//     'public'              => true,
+//     'show_ui'             => true,
+//     'show_in_menu'        => true,
+//     'show_in_nav_menus'   => true,
+//     'show_in_admin_bar'   => true,
+//     'can_export'          => true,
+//     'has_archive'         => true,
+//     'exclude_from_search' => false,
+//     'publicly_queryable'  => true
+//     // 'rewrite'               => array( 'slug' => '/%show_category%', 'with_front' => true )
+//   );
 
   
-  // Registering your Custom Post Type
-  register_post_type( 'beers', $args );
+//   // Registering your Custom Post Type
+//   register_post_type( 'beers', $args );
 
-}
+// }
 
 /* Hook into the 'init' action so that the function
 * Containing our post type registration is not 
 * unnecessarily executed. 
 */
 
-add_action( 'init', 'custom_post_type', 0 );
+// add_action( 'init', 'custom_post_type', 0 );
 
 
 
@@ -125,6 +122,24 @@ function register_my_menu() {
 }
 add_action( 'init', 'register_my_menu' );
 
+
+class Primary_Walker_Nav_Menu extends Walker_Nav_Menu {
+    
+    function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
+        if ( array_search( 'menu-item-has-children', $item->classes) ) {
+            $output .= sprintf( "\n<li class='dropdown nav-item %s'><a href='%s' class=\"dropdown-toggle\" data-toggle=\"dropdown\" >%s</a>\n", ( array_search( 'current-menu-item', $item->classes ) || array_search( 'current-page-parent', $item->classes ) ) ? 'active' : '', $item->url, $item->title );
+            $i = 1;
+        } else {
+            $output .= sprintf( "\n<li class='nav-item' %s><a class='nav-link' href='%s'>%s</a>\n", ( array_search( 'current-menu-item', $item->classes) ) ? ' class="active"' : '', $item->url, $item->title );
+        }
+    }
+
+    function start_lvl( &$output, $depth ) {
+        $indent = str_repeat( "\t", $depth );
+        $output .= "\n$indent<ul class=\"dropdown-menu\" role=\"menu\">\n";
+    }
+}
+
 // register_nav_menus( array(
 //   'top_nav' => 'Top Navigation'
 // ) );
@@ -133,5 +148,13 @@ function wpdocs_custom_excerpt_length( $length ) {
     return 40;
 }
 add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
+
+
+add_action('get_header', 'my_filter_head');
+
+  function my_filter_head() {
+    remove_action('wp_head', '_admin_bar_bump_cb');
+  }
+
 
 ?>

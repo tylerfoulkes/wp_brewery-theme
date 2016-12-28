@@ -84,7 +84,9 @@ header {
 	max-width: 200px;
 }
 
-.menu {
+
+
+/*.menu {
 	margin: 0 30px 0 0;
 	float: right;
 }
@@ -101,13 +103,13 @@ header {
 	line-height: 50px;
 	height: 50px;
 	font-size: 16px;
-}
+}*/
 
 /*.menu a:last-of-type {
 	margin: 0;
 }*/
 
-.menu a:hover {
+/*.menu a:hover {
 	border-bottom: 2px solid #fff;
 }
 
@@ -121,9 +123,9 @@ header {
 	display: none;
 	background-color: #f0f0f0;
 	color: black;
-}
+}*/
 
-.sub-menu li a {
+/*.sub-menu li a {
 	color: black !important;
 }
 
@@ -144,9 +146,9 @@ header {
 
 .navline:last-of-type {
     margin: 0;
-}
+}*/
 
-#searchform {
+/*#searchform {
 	margin: 14px 0 14px 0;
 	float: right;
 }
@@ -161,7 +163,7 @@ header {
 	background-color: #f0f0f0;
 	width: 150px;
 	font-weight: lighter;
-}
+}*/
 
 #searchform input[type="submit"]{
 	display: none;
@@ -177,8 +179,8 @@ header {
 #banner_cont {
 	margin: 80px 0 0 0;
 	display: block;
-	position: relative;
 	width: 100%;
+	position: relative;
 	height: auto;
 	max-height: 100%;
 	overflow: hidden;

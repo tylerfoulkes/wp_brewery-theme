@@ -6,7 +6,7 @@ gulp.task('js', function () {
     return gulp.src('js/*js')
         .pipe(browserify())
         .pipe(uglify())
-        .pipe(gulp.dest('dist/js'));
+        .pipe(gulp.dest('assets/js'));
 });
 
 // create a task that ensures the `js` task is complete before
