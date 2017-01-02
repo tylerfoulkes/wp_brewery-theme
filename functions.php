@@ -1,20 +1,5 @@
 <?php
 
-
-
-// add_action( 'init', 'create_book_tax' );
-
-// function create_book_tax() {
-//   register_taxonomy(
-//     'types',
-//     'beers',
-//     array(
-//       'label' => __( 'Types' ),
-//       'hierarchical' => true
-//     )
-//   );
-// }
-
 /*
 * Creating a function to create our CPT
 */
@@ -73,9 +58,7 @@
 
 
 
-/*
-  Register our sidebars and widgetized areas.
- */
+/* Register our sidebars and widgetized areas. */
 function arphabet_widgets_init() {
 
   register_sidebar( array(
@@ -106,23 +89,26 @@ function arphabet_widgets_init() {
   ) );
   
 }
-
 add_action( 'widgets_init', 'arphabet_widgets_init' );
 
 
+/* Add custom header support */
 add_theme_support( 'custom-header', array('default-text-color' => '#fff',
   'header-text' => true) );
 
 
+/* Add custom logo support */
 add_theme_support( 'custom-logo' );
 
 
+/* Register navigation menu */
 function register_my_menu() {
   register_nav_menu('top_nav',__( 'Top Navigation' ));
 }
 add_action( 'init', 'register_my_menu' );
 
 
+/* Add bootstrap navigation structure to menus using the Walker class */
 class Primary_Walker_Nav_Menu extends Walker_Nav_Menu {
     
     function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
@@ -140,21 +126,19 @@ class Primary_Walker_Nav_Menu extends Walker_Nav_Menu {
     }
 }
 
-// register_nav_menus( array(
-//   'top_nav' => 'Top Navigation'
-// ) );
 
+/* Custom excerpt length */
 function wpdocs_custom_excerpt_length( $length ) {
     return 40;
 }
 add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
 
 
-add_action('get_header', 'my_filter_head');
 
-  function my_filter_head() {
-    remove_action('wp_head', '_admin_bar_bump_cb');
-  }
+add_action('get_header', 'my_filter_head');
+function my_filter_head() {
+  remove_action('wp_head', '_admin_bar_bump_cb');
+}
 
 
 ?>

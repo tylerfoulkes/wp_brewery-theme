@@ -1,21 +1,21 @@
 <?php get_header(); ?>
 
-	<ul id="blog">
-		<?php 
-			if ( have_posts() ) {
+	<ul class="margin-top-140">
+		<div class="col-md-12"><?php get_sidebar(); ?></div>
+		<?php if ( have_posts() ) {
 			while ( have_posts() ) {
-				the_post(); 
-				if(!has_tag('beer') && !has_tag('about')) { ?>
-					<li class="post">
-						<a href="<?php the_permalink(); ?>"><h3><?php the_title(); ?></h3></a>
-						<?php the_content();?>
+				the_post();
+				if(get_post_type( $post->ID ) == 'beer') { ?>
+					<li class="col-md-3">
+						<a href="<?php the_permalink(); ?>" class="h5 margin-bottom-10"><?php the_title(); ?></a>
 					</li>
 				<?php }
-			}
+				else { ?>
+					<a href="<?php the_permalink(); ?>" class="h5 margin-bottom-10"><?php the_title(); ?></a>
+				<?php }
+			} 
 		} ?>
 	</ul>
-
-	<?php get_sidebar(); ?>
 
 	<div id="labels">
 		<?php posts_nav_link('  ','prelabel','nextlabel'); ?>
