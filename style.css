@@ -3,7 +3,7 @@ Theme Name: Brew
 Theme URI: 
 Author: Tyler Foulkes
 Author URI: http://wordpress.org/
-Description: Brewery theme
+Description: A Wordpress Brewery theme that is designed for small to medium sized breweries 
 License: 
 License URI: 
 Tags: 
@@ -12,6 +12,7 @@ Text Domain:
 
 
 /*GLOBAL PAGE START*/
+
 @font-face {
 	src: url('assets/fonts/BEBAS___.TTF');
 	font-family: bebas;
@@ -44,7 +45,7 @@ a:hover {
 }
 
 #labels {
-	padding: 30px 0 0 0;
+	padding: 30px 0 60px 0;
 	width: 200px;
 	display: block;
 	margin: 0 auto 0 auto;
@@ -110,90 +111,59 @@ header {
 	color: grey;
 }
 
+.menu a {
+			color: #<?php header_textcolor(); ?> !important;
+		}
 
-
-
-/*.menu {
-	margin: 0 30px 0 0;
-	float: right;
+#logo img {
+	border: 1px solid #000;
+	width: 150px;
 }
 
-.menu li {
-	position: relative;
-	height: 50px;
-	float: left;
-	margin: 0 25px 0 0;
+.dropdown:hover .dropdown-menu {
+	display: block;
 }
 
-.menu li a {
+#searchsubmit {
+	display: none;
+}
+
+.beer_image img {
+	width: 100%;
+}
+
+.nav-link, .dropdown-toggle {
 	color: white;
-	line-height: 50px;
-	height: 50px;
-	font-size: 16px;
-}*/
-
-/*.menu a:last-of-type {
-	margin: 0;
-}*/
-
-/*.menu a:hover {
-	border-bottom: 2px solid #fff;
 }
 
-.sub-menu {
-	padding: 0 5px 0 5px;
-	top: 50px;
-	left: 0;
-	width: auto;
-	height: auto;
-	position: absolute;
-	display: none;
-	background-color: #f0f0f0;
-	color: black;
-}*/
-
-/*.sub-menu li a {
-	color: black !important;
+.cat {
+	text-transform: uppercase;
+	font-weight: bold;
 }
 
-.sub-menu li a:hover {
-	border-bottom: 2px solid #000;
-}
-
-#mobile_menu {
-	display: none;
-}
-
-.navline {
-    width: 100%;
-    border-top: 1px solid #fff;
-    margin: 0 0 6px 0;
-    height: 0;
-}
-
-.navline:last-of-type {
-    margin: 0;
-}*/
-
-#searchform {
-	width: 100%;
-	margin: 8px 0 0 0;
-	float: right;
-}
-
-#searchform input[type="text"] {
-	width: 100%;
-	font-family: arial;
-	font-size: 14px;
-	outline: none;
+.dropdown-menu {
 	border: none;
-	background-color: #f0f0f0;
-	font-weight: lighter;
+	padding: 5px;
 	border-radius: 0;
+	margin: 0;
+	width: auto;
+	background-color: white;
 }
 
-#searchform input[type="submit"]{
+.dropdown-menu:after {
 	display: none;
+}
+
+.dropdown-menu .nav-link {
+	color: black;
+}
+
+.dropdown-menu .nav-link:hover {
+	color: grey;
+}
+
+.navbar-toggler {
+	color: white;
 }
 
 /*HEADER END */
@@ -228,15 +198,11 @@ header {
 	position: absolute;
 	z-index: 2;
 	height: auto;
+	display: none;
 }
 
 .call-to-action a {
 	color: white;
-}
-
-#fet_brews {
-	width: 90%;
-	margin: 80px 5% 80px 5%;
 }
 
 .beer_image img {
@@ -264,19 +230,21 @@ header {
 	margin-top: 140px;
 }
 
-.featured p {
-	font-family: arial;
-	font-size: 13px;
-	margin-bottom: 10px;
+.margin-top-30 {
+	margin-top: 30px;
 }
 
-.featured img, #brews_page li img {
-	height: auto;
-	float: left;
-	width: auto;
-	margin: 0 4% 0 0;
+.margin-bottom-30 {
+	margin-bottom: 30px;
 }
 
+.margin-top-60 {
+	margin-top: 60px;
+}
+
+.margin-bottom-60 {
+	margin-bottom: 60px;
+}
 /*HOMEPAGE PAGE START*/
 
 
@@ -366,53 +334,22 @@ header {
 
 /*BLOG PAGE START*/
 
-#blog {
-	float: left;
-	width: 67%;
-	margin: 100px 3% 40px 5%;
-}
-
-.post:first-child {
-	margin: 0;
-}
-
 .post {
+	font-family: arial;
 	padding: 0 0 20px 0;
 	border-bottom: 1px solid #000;
 	width: 100%;
 	margin: 40px 0 0 0;
 }
 
-.post p {
-	margin: 20px 0 0 0;
-	font-size: 14px;
-	font-family: arial;
-}
-
-.post h3 {
-	color: black;
-	font-size: 16px;
-}
-
-.post div {
-	background-color: grey;
-	width: 50% !important;
-}
-
-#blog img {
-	max-width: 100% !important;
-	height: auto !important;
-}
-
-.post p {
-	font-family: arial;
-	width: 100%;
+.post:first-child {
+	margin: 0;
 }
 
 #sidebar {
 	padding: 1%;
 	background-color: #f0f0f0;
-	margin: 140px 0 40px 0;
+	margin: 0 0 40px 0;
 }
 
 #sidebar h2 {
@@ -439,20 +376,22 @@ header {
 	display: none;
 }
 
-#comments {
-	margin: 20px 0 0 0;
-	background-color: #f0f0f0;
-	width: 500px !important;
-	padding: 2%;
+#comment {
+	width: 600px;
+	max-width: 800px !important;
 }
 
-#comments p, #comments span, #comments a {
+.comments {
+	background-color: #f0f0f0;
+}
+
+.comments p, .comments span, .comments a {
 	color: black;
 	font-size: 13px;
 	font-family: arial;
 }
 
-#comments a {
+.comments a {
 	font-weight: bold;
 }
 
@@ -461,24 +400,32 @@ header {
 	font-size: 16px;
 }
 
-#commentform {
+.commentform {
 	width: 100%;
 }
 
-#commentform input, #commentform textarea {
+.commentform input, #commentform textarea {
+	width: 100%;
 	padding: 5px;
 	border: none;
 	outline: none;
 }
 
 .form-submit [type="submit"] {
+	width: 150px;
 	background-color: black;
 	color: white;
 	padding: 5px;
 	font-size: 13px;
 }
 
-#commentform span {
+.form-submit [type="submit"]:hover,
+.form-submit [type="submit"]:focus
+ {
+ 	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.commentform span {
 	vertical-align: top;
 }
 
@@ -518,8 +465,8 @@ header {
 }
 
 .comment-body p {
+	font-size: 15px;
 	width: 100% !important;
-	background-color: white;
 }
 
 /*BLOG PAGE END*/
@@ -528,10 +475,10 @@ header {
 
 
 /*FOOTER START*/
-
-footer {
+.body_footer {
+	margin: 40px 0 0 0;
 	display: block;
-	margin: 50px 0 0 0;
+	margin: 0;
 	height: 300px;
 	width: 100%;
 	padding: 30px 3% 30px 3%;
@@ -570,67 +517,21 @@ footer {
 
 @media screen and (max-width: 768px) {
 	header {
-		height: 130px;
+		height: auto;
+		min-height: 150px;
 		padding: 15px 3% 15px 3%;
 	}
 
-	#blog {
-		width: 90%;
-		margin: 80px 5% 0 5%;
+	.margin-top-140 {
+		margin-top: 210px;
 	}
 
-	footer {
-		margin: 80px 0 0 0;
+	#banner_cont {
+		margin: 150px 0 0 0;
+	}
+
+	.body_footer {
 		height: auto;
-	}
-
-	.menu {
-		left: 0;
-		right: 0;
-		display: none;
-		float: none;
-		top: 80px;
-		position: fixed;
-		z-index: 2;
-		margin: 0;
-		width: 100%;
-		background-color: black;
-	}
-
-	.menu li {
-		height: auto;
-		display: block;
-		text-align: center;
-		float: none;
-		margin: 5px 0 0 0;
-	}
-
-	.menu li:last-child {
-		margin: 5px 0 15px 0;
-	}
-
-	.menu li a {
-		height: 20px;
-	}
-
-	#mobile_menu {
-		height: 20px;
-		top: 30px;
-		position: absolute;
-		right: 180px;
-		width: 30px;
-		display: block;
-	}
-
-	.sub-menu {
-		width: 100%;
-		margin: 0 0 0 0;
-		top: 0;
-		position: relative;
-	}
-
-	.sub-menu li a {
-		text-align: right;
 	}
 
 	#sidebar {
@@ -648,8 +549,8 @@ footer {
 
 
 
-/* =WordPress Core
--------------------------------------------------------------- */
+/* WORDPRESS CORE START */
+
 .alignnone {
     margin: 5px 20px 20px 0;
 }
@@ -755,3 +656,5 @@ a img.aligncenter {
 	width: auto;
 	z-index: 100000; /* Above WP toolbar. */
 }
+
+/* WORDPRESS CORE STOP */

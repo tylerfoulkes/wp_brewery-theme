@@ -1,6 +1,9 @@
-<?php get_header(); ?>
+<?php 
+	// Get the header
+	get_header(); 
+?>
 
-	<ul class="margin-top-140 col-md-8">
+	<ul class="margin-top-140 col-md-8 margin-bottom-60">
 		<?php 
 			if ( have_posts() ) {
 			while ( have_posts() ) {
@@ -11,9 +14,10 @@
 					</li>
 			<?php }
 		} ?>
+		<div class="clearfix"></div>
 	</ul>
 
-	<div class="col-md-4">
+	<div class="col-md-4 margin-top-140">
 		<?php get_sidebar(); ?>
 	</div>
 
@@ -21,4 +25,7 @@
 		<?php posts_nav_link(' ','prelabel','nextlabel'); ?>
 	</div>
 
-<?php get_footer(); ?>
+<?php 
+	// Get the footer
+	get_footer(); 
+?>

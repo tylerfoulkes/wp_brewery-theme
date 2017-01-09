@@ -1,79 +1,73 @@
 <?php
-/**
- * The template for displaying comments
- *
- * The area of the page that contains both current comments
- * and the comment form.
- *
- * @package WordPress
- * @subpackage Twenty_Sixteen
- * @since Twenty Sixteen 1.0
- */
-
-/*
- * If the current post is protected by a password and
- * the visitor has not yet entered the password we will
- * return early without loading the comments.
- */
-if ( post_password_required() ) {
-	return;
-}
+	if ( post_password_required() ) {
+		return;
+	}
 ?>
 
-<div id="comments" class="comments-area">
+<?php
+	$comment_args = array(
+		'author_email' => '',
+		'author__in' => '',
+		'author__not_in' => '',
+		'include_unapproved' => '',
+		'fields' => '',
+		'ID' => '',
+		'comment__in' => '',
+		'comment__not_in' => '',
+		'karma' => '',
+		'number' => '',
+		'offset' => '',
+		'orderby' => '',
+		'order' => 'DESC',
+		'parent' => '',
+		'post_author__in' => '',
+		'post_author__not_in' => '',
+		'post_ID' => '', // ignored (use post_id instead)
+		'post_id' => $post->ID,
+		'post__in' => '',
+		'post__not_in' => '',
+		'post_author' => '',
+		'post_name' => '',
+		'post_parent' => '',
+		'post_status' => '',
+		'post_type' => '',
+		'status' => 'all',
+		'type' => '',
+	    'type__in' => '',
+	    'type__not_in' => '',
+		'user_id' => '',
+		'search' => '',
+		'count' => false,
+		'meta_key' => '',
+		'meta_value' => '',
+		'meta_query' => '',
+		'date_query' => null, // See WP_Date_Query
+	);
+	$comments = get_comments($comment_args); 
+?>
+<div class="margin-top-30 comments col-xs-12 margin-bottom-30">
+	<?php 
+		 $args = array(
+			'walker'            => null,
+			'max_depth'         => '',
+			'style'             => 'ul',
+			'callback'          => null,
+			'end-callback'      => null,
+			'type'              => 'all',
+			'reply_text'        => 'Reply',
+			'page'              => '',
+			'per_page'          => '',
+			'avatar_size'       => 32,
+			'reverse_top_level' => null,
+			'reverse_children'  => '',
+			'format'            => 'html5', // or 'xhtml' if no 'HTML5' theme support
+			'short_ping'        => false,   // @since 3.6
+		        'echo'              => true     // boolean, default is true
+		);
 
-	<?php if ( have_comments() ) : ?>
-		<h2 class="comments-title">
-			<?php
-				$comments_number = get_comments_number();
-				if ( 1 === $comments_number ) {
-					/* translators: %s: post title */
-					printf( _x( 'One thought on &ldquo;%s&rdquo;', 'comments title', 'twentysixteen' ), get_the_title() );
-				} else {
-					printf(
-						/* translators: 1: number of comments, 2: post title */
-						_nx(
-							'%1$s thought on &ldquo;%2$s&rdquo;',
-							'%1$s thoughts on &ldquo;%2$s&rdquo;',
-							$comments_number,
-							'comments title',
-							'twentysixteen'
-						),
-						number_format_i18n( $comments_number ),
-						get_the_title()
-					);
-				}
-			?>
-		</h2>
-
-		<?php the_comments_navigation(); ?>
-
-		<ol class="comment-list">
-			<?php
-				wp_list_comments( array(
-					'style'       => 'ol',
-					'short_ping'  => true,
-					'avatar_size' => 42,
-				) );
-			?>
-		</ol><!-- .comment-list -->
-
-		<?php the_comments_navigation(); ?>
-
-	<?php endif; // Check for have_comments(). ?>
-
-	<?php
-		// If comments are closed and there are comments, let's leave a little note, shall we?
-		if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
+		wp_list_comments( $args, $comments );
 	?>
-		<p class="no-comments"><?php _e( 'Comments are closed.', 'twentysixteen' ); ?></p>
-	<?php endif; ?>
-
-	<?php
-		comment_form( array(
-			'title_reply_before' => '<h2 id="reply-title" class="comment-reply-title">',
-			'title_reply_after'  => '</h2>',
-		) );
-	?>
-
-</div><!-- .comments-area -->
+	<div class="commentform col-xs-12 margin-top-30">
+		<?php comment_form(); ?>
+	</div>
+</div>

@@ -1,63 +1,5 @@
 <?php
 
-/*
-* Creating a function to create our CPT
-*/
-
-// function custom_post_type() {
-
-// // Set UI labels for Custom Post Type
-//   $labels = array(
-//     'name'                => _x( 'Beers', 'Post Type General Name'),
-//     'singular_name'       => _x( 'Beer', 'Post Type Singular Name'),
-//     'menu_name'           => __( 'Beers')
-//   );
-  
-// // Set other options for Custom Post Type
-  
-//   $args = array(
-//     'label'               => __( 'beers'),
-//     'description'         => __( 'Beers'),
-//     'labels'              => $labels,
-//     // Features this CPT supports in Post Editor
-
-//     // You can associate this CPT with a taxonomy or custom taxonomy. 
-
-//      A hierarchical CPT is like Pages and can have
-//     * Parent and child items. A non-hierarchical CPT
-//     * is like Posts.
-      
-//     'hierarchical'        => true,
-//     'public'              => true,
-//     'show_ui'             => true,
-//     'show_in_menu'        => true,
-//     'show_in_nav_menus'   => true,
-//     'show_in_admin_bar'   => true,
-//     'can_export'          => true,
-//     'has_archive'         => true,
-//     'exclude_from_search' => false,
-//     'publicly_queryable'  => true
-//     // 'rewrite'               => array( 'slug' => '/%show_category%', 'with_front' => true )
-//   );
-
-  
-//   // Registering your Custom Post Type
-//   register_post_type( 'beers', $args );
-
-// }
-
-/* Hook into the 'init' action so that the function
-* Containing our post type registration is not 
-* unnecessarily executed. 
-*/
-
-// add_action( 'init', 'custom_post_type', 0 );
-
-
-
-
-
-
 /* Register our sidebars and widgetized areas. */
 function arphabet_widgets_init() {
 
@@ -139,6 +81,5 @@ add_action('get_header', 'my_filter_head');
 function my_filter_head() {
   remove_action('wp_head', '_admin_bar_bump_cb');
 }
-
 
 ?>

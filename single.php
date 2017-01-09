@@ -1,10 +1,13 @@
-<?php get_header(); ?>
+<?php 
+	// Get the header
+	get_header(); 
+?>
 
-<div class="row-fluid margin-top-140">
+<div class="row-fluid margin-top-140 margin-bottom-60">
 	<?php
 		the_post(); ?>
     	<?php if(get_post_type( $post->ID ) == 'beer') { ?>
-    		<div class="beer_image col-md-2 offset-sm-2">
+    		<div class="beer_image col-md-2 col-xs-6 offset-sm-2">
     			<?php echo wp_get_attachment_image( get_post_meta($post->ID, '_image_id', true), 'medium', false); ?>
     		</div>
     		<div class="col-md-8">
@@ -15,15 +18,22 @@
     		</div>
 		<?php }
 		else { ?>
-			<div class="offset-sm-3 col-md-6">
-				<p class="h5 margin-bottom-10"><?php the_title(); ?></p>
-				<?php the_content(); ?>
+			<div class="col-xs-12 offset-lg-2 col-lg-8 col-xl-6 offset-xl-3">
+			<p class="h5 margin-bottom-10"><?php the_title(); ?></p>
+				<?php 
+					the_content(); 
+					get_template_part( 'comments', 'none' ); 
+				?>
 			</div>
 		<?php }
 		wp_reset_postdata();	 
 	?>
+	<div class="clearfix"></div>
 </div>
 
 <div class="clearfix"></div>
 
-<?php get_footer(); ?>
+<?php 
+	// Get the footer
+	get_footer(); 
+?>
